@@ -1,0 +1,179 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html>
+<head>
+<title>Surat Dari Catrin🌱</title>
+<style>
+body {
+  margin: 0;
+  background: #5d3b25;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  color: #f5e9d8;
+  overflow-x: hidden;
+}
+
+/* HALAMAN 1 */
+#page1 {
+  display: block;
+  height: 100vh;
+}
+
+.title {
+  margin-top: 90px;
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.question {
+  font-size: 25px;
+  margin-top: 20px;
+}
+
+button {
+  margin: 15px;
+  padding: 15px 30px;
+  font-size: 22px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+#yes {
+  background: #d9b18e;
+  color: #402a1e;
+}
+
+#no {
+  background: #402a1e;
+  color: #d9b18e;
+}
+
+/* BUNGA 🌸 */
+.flower {
+  position: fixed;
+  top: -50px;
+  font-size: 26px;
+  animation: fall linear infinite;
+  pointer-events: none;
+  color: #ffdbc7;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-60px); opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(110vh); opacity: 0; }
+}
+
+/* BINTANG ✨ */
+.star {
+  position: fixed;
+  width: 3px;
+  height: 3px;
+  background: #fff7d7;
+  border-radius: 50%;
+  animation: blink 2s infinite ease-in-out;
+  opacity: 0.6;
+}
+@keyframes blink {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+/* HALAMAN 2 */
+#page2 {
+  display: none;
+  padding: 40px 25px 120px;
+  font-size: 19px;
+  line-height: 30px;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+#page2 h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.surat-box {
+  background: rgba(255, 240, 220, 0.22);
+  border: 2px solid #f5e9d8;
+  border-radius: 18px;
+  padding: 25px;
+  max-width: 750px;
+  margin: 30px auto;
+  font-size: 19px;
+}
+</style>
+</head>
+<body>
+
+<!-- HALAMAN 1 -->
+<div id="page1">
+  <div class="title">Surat Dari Catrin🌱</div>
+  <div class="question">Apakah kamu mau membacanya??</div>
+  <button id="yes">Iya</button>
+  <button id="no">Tidak</button>
+</div>
+
+<!-- HALAMAN 2 -->
+<div id="page2">
+  <h1>Thank U For Being My Friend🤍</h1>
+  <div class="surat-box">
+    Aku bersyukur karena bisa mengenalmu dan melewati banyak cerita bersama.<br><br>
+    Tidak selalu semua berjalan mulus, tapi kamu selalu hadir dengan cara yang membuat semuanya terasa lebih ringan.<br><br>
+    Terima kasih sudah mendengarkan ketika aku butuh tempat bercerita, tertawa bersamaku di saat senang,
+    dan tetap tinggal ketika hari-hariku sedang tidak baik-baik saja.<br><br>
+    Kamu bukan hanya teman -- kamu adalah seseorang yang membuat hidupku terasa lebih penuh warna. 🎀<br><br>
+    Semoga pertemanan ini tetap ada, tumbuh, dan selalu membawa kebaikan untuk kita bersama.<br><br>
+    Makasihhhhhhhhhhhhhhh banyakkkkkkkkkkk udah hadir 🤍🤍🤍
+  </div>
+</div>
+
+<script>
+let yes = document.getElementById("yes");
+let no = document.getElementById("no");
+let page1 = document.getElementById("page1");
+let page2 = document.getElementById("page2");
+
+/* NO → membesarkan tombol YES */
+no.addEventListener("click", () => {
+  let size = yes.getBoundingClientRect();
+  yes.style.width = size.width + 45 + "px";
+  yes.style.height = size.height + 18 + "px";
+  yes.style.fontSize = parseInt(window.getComputedStyle(yes).fontSize) + 3 + "px";
+});
+
+/* YES → pindah ke halaman 2 */
+yes.addEventListener("click", () => {
+  page1.style.display = "none";
+  page2.style.display = "block";
+  document.body.style.overflowY = "auto";
+});
+
+/* efek bunga jatuh 🌸 */
+function createFlower() {
+  const flower = document.createElement("div");
+  flower.classList.add("flower");
+  flower.innerHTML = "🌸";
+  flower.style.left = Math.random() * window.innerWidth + "px";
+  flower.style.animationDuration = (4 + Math.random() * 5) + "s";
+  document.body.appendChild(flower);
+  setTimeout(() => flower.remove(), 9000);
+}
+setInterval(createFlower, 450);
+
+/* efek bintang ✨ */
+function createStar() {
+  const star = document.createElement("div");
+  star.classList.add("star");
+  star.style.left = Math.random() * window.innerWidth + "px";
+  star.style.top = Math.random() * window.innerHeight + "px";
+  star.style.animationDuration = (2 + Math.random() * 2) + "s";
+  document.body.appendChild(star);
+}
+for (let i = 0; i < 60; i++) createStar();
+</script>
+
+</body>
+</html>
